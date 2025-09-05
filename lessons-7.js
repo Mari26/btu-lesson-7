@@ -97,3 +97,29 @@ function shuffle(arr){
 const myNumbers = [1, 2, 3, 4, 5, 6, 7, 8];
 
 console.log(shuffle(myNumbers));
+
+// 7
+
+function mostFrequent(arr){
+ arr.sort((a,b)=>a-b);
+ let mostFrequentNum = arr[0];
+  let maxCount = 1;
+  let currentCount = 1;
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] === arr[i - 1]) {
+      currentCount++;
+    } else {
+      currentCount = 1;
+    }
+    if (currentCount > maxCount) {
+      maxCount = currentCount;
+      mostFrequentNum = arr[i];
+    }
+  }
+
+  return mostFrequentNum;
+}
+
+const numberss = [3, 5, 2, 5, 3, 3, 1, 4];
+console.log(mostFrequent(numberss));
